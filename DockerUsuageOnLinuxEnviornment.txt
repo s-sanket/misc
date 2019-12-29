@@ -1,0 +1,241 @@
+Lab Instructions for installing Docker in CentOS
+****************************************************************************************************************************
+Steps for installing Docker on Ubuntu  Virtual Machine on AWS
+
+Link for installing Docker 
+https://phoenixnap.com/kb/how-to-install-docker-on-ubuntu-18-04
+
+
+
+Steps for starting and running Docker on Ubuntu Virtual Machine on AWS
+
+
+# sudo systemctl start docker 
+# sudo systemctl status docker
+# sudo systemctl enable docker
+# sudo docker images
+# sudo docker ps			Lists running containers. 
+# sudo docker pull hello-world		Most of your images will be created on top of a base image from the Docker Hub registry.
+# sudo docker images			
+# sudo docker run hello-world
+
+# sudo docker container ls --all	List all containers runningus
+# sudo docker container --help
+_____________________________________________________________________________________________________________________________
+
+Lab Instructions for pulling Readymade container images from Docker Hub
+		     Starting Containers with the help of Docker Container service
+		     Testing Applications running inside container
+
+
+sudo
+a. Pull and Run nginx Image from Docker Hub
+
+     	#sudo docker pull nginx
+	
+	#sudo docker run --name webserver -d -p 8080:80 nginx:latest
+	
+	Access  url http://your external id address:8080  in  your client Browser  to invoke Web Application
+
+
+b. Pull Angular app Image from Rahul Navale's Docker hub images galary
+
+	#sudo docker pull rahulsn/ng
+
+	sudo docker run --name rnserver -d -p 8888:80 rahulsn/ng
+
+	Access  url http://your external id address:8888  in  your client Browser  to invoke Web Application
+
+
+c. Pull Containerized applications from Ravi Tambade Git Repository
+
+  #git clone https://github.com/RaviTambade/containerapps.git
+
+
+  c.1 Build container for NodeJS Application
+	
+	#cd containerapps/nodeapp			--> set directory to NodeJS application folder
+
+	#sudo docker build -t nodeapp .  		--> build docker container with the help of DockerFile 
+
+
+
+  c.2 Run container for NodeJS Application
+
+	#sudo docker run -p 8081:8081 nodeapp		-->run docker container which has NodeJS EStore Web app hosted
+
+	Access  url http://your external id address:8081  in  your client Browser  to invoke Web Application
+
+
+  
+   c.3 Build container for JAVA Application
+	
+	#sudo docker build -t containerjavaapp .
+	#sudo docker run containerjavaapp
+
+
+
+d. Add new text file to Write Dockerfile
+
+
+content for Dcoker
+
+FROM node:7
+WORKDIR /app
+COPY package.json /app
+RUN npm install
+COPY . /app
+CMD node server.sj
+EXPOSE 8091
+
+
+
+#sudo docker build -t customerservice .  
+#sudo docker run -p 8091:8091 customerservice
+
+
+
+Python app dockerization
+
+
+docker build  -t pyapp .
+docker run --name pyapp -p 5000:5000 pyapp
+
+
+Docker Commands to start or stop containers running inside Docker Container Service
+
+Docker  Containers
+___________________________________________________________________________________
+
+if 8fd --------- is container id,
+
+#sudo docker stop 8fd			It will automatically find the container that matches the name and stop it.
+#sudo docker start 8df			.
+
+#sudo docker ps -a 			to see all of osudur existing containers (starting or stopped).
+#sudo docker rm 8fd		 	you’ll see it has been removed.
+
+
+Docker Images
+
+#sudo docker images			to list all of your Docker images that have been downloaded 
+#sudo docker rmi bba			it will delete the docker image with id bba from repository 	
+#suso docker rmi ce6				it will delete the docker image with id ce6 from repository 
+
+
+
+#sudo docker rmi $(docker images -a -q)   --remove all images from docker
+#sudo docker system prune                 ----------remove all containers
+#sudo docker system prune -a              -- to additionally remove any stopped containers and all unused images
+
+Explore DockerFile available in folder containerjavaapp, nodeapp , 
+
+
+___________________________________________________________________________________________________________________________
+
+
+#sudo docker images			to list all of your Docker images that have been downloaded 
+#sudo docker rmi bba			it will delete the docker image with id bba from repository 	
+#suso docker rmi ce6				it will delete the docker image with id ce6 from repository 
+
+
+
+#docker rmi $(docker images -a -q)   --remove all images from docker
+#docker system prune                 ----------remove all containers
+#docker system prune -a              -- to additionally remove any stopped containers and all unused images
+
+______________________________________________________________________________________________________________________________
+
+
+Lab Instructions for installing Node JS in Centos 7
+
+
+#sudo yum install nodejs
+#sudo mkdir -p /tfl/myapp
+#cd /tfl/myapp
+
+var http = require('http');
+
+Lab Instructions for  using git  in CentOS
+
+#sudo yum install git
+#sudo git --version
+#git --help
+#git config --global user.name "RaviTambade"
+#git config --global user.email ravi.tambade@transflower.in
+
+List down git configuration for your machine
+
+# git config --list
+
+Download standard node js application from Ravi Sir's Public code Repository to test in node js of CentOS instance
+
+#git clone https://github.com/RaviTambade/dbdanode.git
+
+
+cd dbdanode
+cd nodeapp
+
+npm install
+noder server.js
+
+___________________________________________________________________________________________________________________________
+
+
+Instructions for  Clonning git repository and commit changes back to Centralized  Code Repository
+
+#git clone https://github.com/RaviTambade/iacsd.git
+
+#cd iacsd
+#cat cloudcomputing.txt
+
+To Edit text file using VI Editor in CentOS use following commands
+
+1.Type the vi command followed by the name of the file to open the file in Vi:
+
+#vi cloudcomputing.txt
+
+
+2. Use the keyboard to navigate through the file. 
+   Press "j" to move the cursor down,
+         "k" to move the cursor up, 
+        "h" to move the cursor left and 
+        "l" to move the cursor right.
+
+3. Press the "i" key to insert text into the file.
+
+4. Press the "Esc" key to return to normal mode to continue navigating through the file.
+
+7. Type ":wq" on the keyboard to save and close the file.
+
+................................................................................................................
+
+
+Now use git commands to  add files  for sending for Code Repository 
+
+#git add cloudcomputing.txt
+#git status
+
+#git commit -m "first commit" cloudcomputing.txt
+#git push -u origin master
+
+/////
+______________________________________________________________________________________________________________________
+
+
+Create ECommerceSolution on your machine
+Go to ECommerce
+
+
+echo "# ECommerceSolution" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/RaviTambade/ECommerceSolution.git
+git push -u origin master
+
+
+
+
+
+

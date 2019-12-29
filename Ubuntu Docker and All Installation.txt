@@ -1,0 +1,40 @@
+********To Install Git in Ubuntu********
+
+1. sudo apt update
+2. sudo apt upgrade
+3. sudo apt-get install git
+4. git --version
+
+
+********To Install NoodeJs & NPM********
+
+1. sudo apt install nodejs
+2. sudo apt install npm
+3. node -v
+4. npm -v
+
+
+********To Install Express********
+
+1. npm install express (inside project folder)
+
+
+********To Install Docker********
+
+1. sudo apt install docker.io
+2. docker --version
+
+********To Start and Enable and Verify Docker********
+
+1. sudo systemctl start docker
+2. sudo systemctl status docker
+3. sudo systemctl enable docker
+
+4. sudo docker pull hello-world
+5. sudo docker run hello-world
+
+
+********To Run Sir's NODE App in Docker********
+
+1. sudo docker build -t nodeapp .
+2. sudo docker build -p 8081:8081 nodeapp
